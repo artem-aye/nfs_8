@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>⚠️ КРИЧАЩИЙ САЙТ ⚠️</title>
   <style>
-    /* Обнуляем отступы и устанавливаем размеры */
     * {
       margin: 0;
       padding: 0;
@@ -18,8 +17,7 @@
     }
 
     body {
-      margin: 0;
-      overflow: hidden; /* Убираем полосы прокрутки */
+      overflow: hidden;
       font-family: Impact, sans-serif;
       text-align: center;
       color: white;
@@ -29,7 +27,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column; /* Устанавливаем вертикальное выравнивание */
+      flex-direction: column;
+      padding: 20px;
     }
 
     @keyframes bgMove {
@@ -45,7 +44,7 @@
     }
 
     h1 {
-      font-size: 5em;
+      font-size: 3em;
       text-shadow: 4px 4px black;
       animation: shake 0.1s infinite;
     }
@@ -59,13 +58,15 @@
     }
 
     .warning {
-      font-size: 2em;
+      font-size: 1.5em;
       color: black;
       background: white;
-      padding: 10px;
+      padding: 10px 20px;
       margin-top: 20px;
       display: inline-block;
       animation: blink 0.5s infinite;
+      border-radius: 10px;
+      text-decoration: none;
     }
 
     @keyframes blink {
@@ -73,17 +74,19 @@
       50% { opacity: 0; }
     }
 
-    /* Стили для GIF */
-    .gif-container {
-      margin-bottom: 20px; /* Отступ от GIF к тексту */
-    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
 
+      .warning {
+        font-size: 1.2em;
+        padding: 8px 16px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="gif-container">
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHA1a2E1c3QzYngxbWF3aDdkN2V6bXVoeGYxM2xqcGJvZWJpZW5zZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/OmS8NFAOvSb9thim0q/giphy.gif" alt="Картинка GIF">
-  </div>
   <h1>тебя тегнули бро ^-^</h1>
   <a class="warning" href="https://t.me/+vImhGZV3y4U5YWNi" target="_blank">🔇 Заглушить</a>
 
@@ -97,7 +100,7 @@
     window.addEventListener('load', () => {
       setTimeout(() => {
         audio.muted = false;
-        audio.volume = 1.0; // Максимальная громкость
+        audio.volume = 1.0;
         audio.play().catch(err => {
           console.warn("Автозвук заблокирован браузером 😭");
         });
